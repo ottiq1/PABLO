@@ -2,12 +2,27 @@
 <html lang="ar" dir="rtl">
 
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>PABLO RED | متجر الاشتراكات الرسمي</title>
 
+<meta name="description" content="أفضل متجر اشتراكات IPTV رياضية وسينمائية في العراق">
+<meta name="keywords" content="IPTV, اشتراكات رياضية, أفلام, قنوات">
+<meta name="author" content="PABLO RED">
+
+<meta property="og:title" content="PABLO RED">
+<meta property="og:description" content="أفضل منصة اشتراكات IPTV في العراق">
+<meta property="og:type" content="website">
+
+<link rel="icon" href="https://cdn-icons-png.flaticon.com/512/5968/5968705.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
 
 <style>
 
@@ -18,6 +33,7 @@
 --green:#22c55e;
 --muted:#9ca3af;
 --border:#1f2937;
+--white:#ffffff;
 }
 
 *{
@@ -25,6 +41,7 @@ margin:0;
 padding:0;
 box-sizing:border-box;
 font-family:'Tajawal',sans-serif;
+scroll-behavior:smooth;
 }
 
 body{
@@ -33,15 +50,25 @@ color:white;
 overflow-x:hidden;
 }
 
-a{
-text-decoration:none;
+/* Scrollbar */
+
+::-webkit-scrollbar{
+width:8px;
 }
+
+::-webkit-scrollbar-thumb{
+background:var(--red);
+border-radius:10px;
+}
+
+/* Header */
 
 header{
 position:sticky;
 top:0;
 z-index:999;
-background:#0b1220;
+background:rgba(7,11,20,.95);
+backdrop-filter:blur(10px);
 padding:15px 5%;
 display:flex;
 justify-content:space-between;
@@ -50,12 +77,17 @@ border-bottom:1px solid var(--border);
 }
 
 .logo h1{
-font-size:30px;
+font-size:32px;
 font-weight:900;
 }
 
 .logo span{
 color:var(--red);
+}
+
+.logo p{
+font-size:12px;
+color:var(--muted);
 }
 
 nav{
@@ -65,18 +97,33 @@ gap:20px;
 
 nav a{
 color:white;
+text-decoration:none;
 font-size:15px;
+transition:.3s;
 }
 
+nav a:hover{
+color:var(--red);
+}
+
+/* Hero */
+
 .hero{
-padding:70px 5%;
+padding:90px 5%;
 text-align:center;
+background:
+linear-gradient(rgba(7,11,20,.88),rgba(7,11,20,.95)),
+url('https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?auto=format&fit=crop&w=1600&q=80');
+
+background-size:cover;
+background-position:center;
 }
 
 .hero h2{
-font-size:50px;
-margin-bottom:20px;
+font-size:58px;
 line-height:1.5;
+margin-bottom:20px;
+font-weight:900;
 }
 
 .hero span{
@@ -84,19 +131,27 @@ color:var(--red);
 }
 
 .hero p{
-color:var(--muted);
-line-height:2;
-max-width:800px;
+max-width:850px;
 margin:auto;
-margin-bottom:30px;
+line-height:2;
+color:var(--muted);
+font-size:17px;
+margin-bottom:35px;
+}
+
+.hero-buttons{
+display:flex;
+justify-content:center;
+gap:15px;
+flex-wrap:wrap;
 }
 
 .btn{
 padding:15px 30px;
 border-radius:12px;
 font-weight:bold;
-display:inline-block;
-margin:5px;
+text-decoration:none;
+transition:.3s;
 }
 
 .btn-red{
@@ -104,34 +159,50 @@ background:var(--red);
 color:white;
 }
 
+.btn-red:hover{
+transform:translateY(-5px);
+}
+
 .btn-dark{
 border:1px solid var(--border);
 color:white;
 }
 
+.btn-dark:hover{
+background:#111827;
+}
+
+/* Stats */
+
 .stats{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
 gap:20px;
-padding:40px 5%;
+padding:50px 5%;
 }
 
 .stat{
 background:var(--card);
-padding:25px;
+padding:30px;
 border-radius:20px;
 text-align:center;
 border:1px solid var(--border);
 }
 
 .stat h3{
-font-size:35px;
+font-size:38px;
 margin-bottom:10px;
 color:var(--red);
 }
 
+.stat p{
+color:var(--muted);
+}
+
+/* Section */
+
 .section{
-padding:70px 5%;
+padding:80px 5%;
 }
 
 .section-title{
@@ -140,13 +211,15 @@ margin-bottom:50px;
 }
 
 .section-title h3{
-font-size:40px;
+font-size:42px;
 margin-bottom:10px;
 }
 
 .section-title p{
 color:var(--muted);
 }
+
+/* Cards */
 
 .cards{
 display:grid;
@@ -159,13 +232,14 @@ background:var(--card);
 border-radius:20px;
 overflow:hidden;
 border:1px solid var(--border);
-transition:.3s;
+transition:.4s;
 cursor:pointer;
 position:relative;
 }
 
 .card:hover{
-transform:translateY(-8px);
+transform:translateY(-10px);
+border-color:var(--red);
 }
 
 .badge{
@@ -189,27 +263,31 @@ overflow:hidden;
 width:100%;
 height:100%;
 object-fit:cover;
-display:block;
+transition:.4s;
+}
+
+.card:hover img{
+transform:scale(1.08);
 }
 
 .card-content{
-padding:20px;
+padding:22px;
 }
 
 .card-content h4{
-font-size:22px;
+font-size:24px;
 margin-bottom:10px;
 }
 
 .card-content p{
 color:var(--muted);
-line-height:1.8;
-margin-bottom:20px;
+line-height:1.9;
 font-size:14px;
+margin-bottom:20px;
 }
 
 .price{
-font-size:30px;
+font-size:32px;
 font-weight:900;
 margin-bottom:20px;
 }
@@ -222,28 +300,99 @@ color:var(--muted);
 .card-btn{
 width:100%;
 padding:14px;
-background:var(--red);
 border:none;
 border-radius:12px;
+background:var(--red);
 color:white;
 font-size:16px;
 font-weight:bold;
 cursor:pointer;
 }
 
+/* Features */
+
+.features{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+margin-top:40px;
+}
+
+.feature{
+background:var(--card);
+padding:30px;
+border-radius:20px;
+border:1px solid var(--border);
+text-align:center;
+}
+
+.feature i{
+font-size:40px;
+margin-bottom:15px;
+color:var(--red);
+}
+
+.feature h4{
+margin-bottom:15px;
+font-size:22px;
+}
+
+.feature p{
+color:var(--muted);
+line-height:1.9;
+}
+
+/* Footer */
+
 footer{
-padding:50px 5%;
+padding:60px 5%;
 text-align:center;
 background:#05080f;
-margin-top:50px;
+border-top:1px solid var(--border);
+}
+
+footer h2{
+font-size:35px;
+margin-bottom:10px;
 }
 
 footer p{
-margin-top:10px;
 color:var(--muted);
+margin-top:10px;
 }
 
-/* نافذة التفاصيل */
+.socials{
+display:flex;
+justify-content:center;
+gap:15px;
+margin-top:25px;
+}
+
+.socials a{
+width:48px;
+height:48px;
+background:#111827;
+display:flex;
+align-items:center;
+justify-content:center;
+border-radius:50%;
+color:white;
+font-size:20px;
+transition:.3s;
+text-decoration:none;
+}
+
+.socials a:hover{
+background:var(--red);
+transform:translateY(-5px);
+}
+
+.copy{
+margin-top:20px;
+font-size:14px;
+}
+
+/* Modal */
 
 .modal{
 position:fixed;
@@ -306,7 +455,7 @@ margin-bottom:20px;
 
 .modal-list{
 display:grid;
-gap:10px;
+gap:12px;
 margin-bottom:25px;
 }
 
@@ -325,12 +474,15 @@ color:white;
 font-weight:bold;
 border-radius:14px;
 font-size:18px;
+text-decoration:none;
 }
+
+/* Mobile */
 
 @media(max-width:900px){
 
 .hero h2{
-font-size:35px;
+font-size:38px;
 }
 
 header{
@@ -338,9 +490,15 @@ flex-direction:column;
 gap:15px;
 }
 
+nav{
+flex-wrap:wrap;
+justify-content:center;
+}
+
 }
 
 </style>
+
 </head>
 
 <body>
@@ -349,11 +507,13 @@ gap:15px;
 
 <div class="logo">
 <h1>PABLO <span>RED</span></h1>
+<p>PREMIUM IPTV STORE</p>
 </div>
 
 <nav>
 <a href="#">الرئيسية</a>
 <a href="#packages">الاشتراكات</a>
+<a href="#features">المميزات</a>
 <a href="#contact">التواصل</a>
 </nav>
 
@@ -368,8 +528,10 @@ gap:15px;
 </h2>
 
 <p>
-تابع أقوى المباريات العالمية والأفلام والمسلسلات بجودة عالية جداً مع سيرفرات مستقرة ودعم فني متواصل
+تابع أقوى المباريات العالمية والأفلام والمسلسلات بجودة عالية جداً مع سيرفرات مستقرة وتفعيل فوري ودعم فني متواصل
 </p>
+
+<div class="hero-buttons">
 
 <a href="#packages" class="btn btn-red">
 استكشف الاشتراكات
@@ -378,6 +540,8 @@ gap:15px;
 <a href="https://wa.me/9647740393776" class="btn btn-dark">
 تواصل واتساب
 </a>
+
+</div>
 
 </section>
 
@@ -414,8 +578,6 @@ gap:15px;
 
 <div class="cards">
 
-<!-- شهر واحد -->
-
 <div class="card" onclick="openModal('اشتراك شهر واحد','5,000 IQD','https://images.unsplash.com/photo-1574629810360-7efbbe195018?auto=format&fit=crop&w=800&q=80')">
 
 <div class="card-image">
@@ -440,8 +602,6 @@ gap:15px;
 
 </div>
 </div>
-
-<!-- 3 اشهر -->
 
 <div class="card" onclick="openModal('اشتراك 3 اشهر','10,000 IQD','https://images.unsplash.com/photo-1547347298-4074fc3086f0?auto=format&fit=crop&w=800&q=80')">
 
@@ -468,8 +628,6 @@ gap:15px;
 </div>
 </div>
 
-<!-- 6 اشهر -->
-
 <div class="card" onclick="openModal('اشتراك 6 اشهر','15,000 IQD','https://images.unsplash.com/photo-1517466787929-bc90951d0974?auto=format&fit=crop&w=800&q=80')">
 
 <div class="card-image">
@@ -494,8 +652,6 @@ gap:15px;
 
 </div>
 </div>
-
-<!-- سنوي -->
 
 <div class="card" onclick="openModal('الاشتراك السنوي','30,000 IQD','https://images.unsplash.com/photo-1624526267942-ab0ff8a3e972?auto=format&fit=crop&w=800&q=80')">
 
@@ -530,13 +686,68 @@ gap:15px;
 
 </section>
 
+<section class="section" id="features">
+
+<div class="section-title">
+<h3>لماذا PABLO RED ؟</h3>
+<p>أفضل تجربة مشاهدة متكاملة</p>
+</div>
+
+<div class="features">
+
+<div class="feature">
+<i class="fa-solid fa-tv"></i>
+<h4>جودة فائقة</h4>
+<p>مشاهدة بجودة 4K و FHD بدون تقطيع</p>
+</div>
+
+<div class="feature">
+<i class="fa-solid fa-bolt"></i>
+<h4>تفعيل فوري</h4>
+<p>تفعيل الاشتراك خلال دقائق عبر واتساب</p>
+</div>
+
+<div class="feature">
+<i class="fa-solid fa-headset"></i>
+<h4>دعم متواصل</h4>
+<p>دعم فني سريع طوال أيام الأسبوع</p>
+</div>
+
+</div>
+
+</section>
+
 <footer id="contact">
 
 <h2>PABLO RED</h2>
 
-<p>للطلب والتفعيل السريع</p>
+<p>
+أفضل منصة اشتراكات IPTV رياضية وسينمائية في العراق
+</p>
 
-<p>07740393776</p>
+<div class="socials">
+
+<a href="https://wa.me/9647740393776">
+<i class="fab fa-whatsapp"></i>
+</a>
+
+<a href="#">
+<i class="fab fa-telegram"></i>
+</a>
+
+<a href="#">
+<i class="fab fa-instagram"></i>
+</a>
+
+<a href="#">
+<i class="fab fa-tiktok"></i>
+</a>
+
+</div>
+
+<p class="copy">
+© 2026 PABLO RED - جميع الحقوق محفوظة
+</p>
 
 </footer>
 
@@ -573,7 +784,9 @@ gap:15px;
 </a>
 
 </div>
+
 </div>
+
 </div>
 
 <script>
