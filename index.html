@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>PABLO RED | متجر الاشتراكات الرسمي</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+--bg:#070b14;
+--card:#111827;
+--red:#e50914;
+--purple:#6d5dfc;
+--green:#22c55e;
+--white:#ffffff;
+--muted:#9ca3af;
+--border:#1f2937;
+}
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Tajawal',sans-serif;
+scroll-behavior:smooth;
+}
+
+body{
+background:var(--bg);
+color:white;
+overflow-x:hidden;
+}
+
+a{
+text-decoration:none;
+}
+
+header{
+position:sticky;
+top:0;
+z-index:999;
+background:rgba(7,11,20,.95);
+padding:15px 5%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+border-bottom:1px solid var(--border);
+backdrop-filter:blur(10px);
+}
+
+.logo h1{
+font-size:30px;
+font-weight:900;
+}
+
+.logo span{
+color:var(--red);
+}
+
+.logo p{
+font-size:11px;
+color:var(--purple);
+font-weight:bold;
+}
+
+nav{
+display:flex;
+gap:20px;
+}
+
+nav a{
+color:white;
+font-size:14px;
+transition:.3s;
+}
+
+nav a:hover{
+color:var(--red);
+}
+
+.hero{
+padding:80px 5%;
+display:grid;
+grid-template-columns:1fr 1fr;
+align-items:center;
+gap:50px;
+background:
+linear-gradient(rgba(7,11,20,.88),rgba(7,11,20,.95)),
+url('https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?q=80&w=1600&auto=format&fit=crop');
+
+background-size:cover;
+background-position:center;
+}
+
+.hero-text h2{
+font-size:55px;
+line-height:1.4;
+margin-bottom:20px;
+font-weight:900;
+}
+
+.hero-text span{
+color:var(--red);
+}
+
+.hero-text p{
+color:var(--muted);
+line-height:2;
+margin-bottom:30px;
+font-size:16px;
+}
+
+.hero-buttons{
+display:flex;
+gap:15px;
+flex-wrap:wrap;
+}
+
+.btn{
+padding:15px 30px;
+border-radius:12px;
+font-weight:bold;
+transition:.3s;
+display:inline-block;
+}
+
+.btn-red{
+background:var(--red);
+color:white;
+}
+
+.btn-dark{
+border:1px solid var(--border);
+color:white;
+}
+
+.hero-image img{
+width:100%;
+max-width:550px;
+border-radius:25px;
+box-shadow:0 20px 60px rgba(0,0,0,.5);
+}
+
+.stats{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
+padding:50px 5%;
+background:#05080f;
+}
+
+.stat{
+background:var(--card);
+padding:25px;
+border-radius:20px;
+text-align:center;
+border:1px solid var(--border);
+}
+
+.stat h3{
+font-size:35px;
+margin-bottom:10px;
+color:var(--red);
+}
+
+.stat p{
+color:var(--muted);
+}
+
+.section{
+padding:80px 5%;
+}
+
+.section-title{
+text-align:center;
+margin-bottom:50px;
+}
+
+.section-title h3{
+font-size:40px;
+font-weight:900;
+margin-bottom:10px;
+}
+
+.section-title p{
+color:var(--muted);
+}
+
+.cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:25px;
+max-width:1300px;
+margin:auto;
+}
+
+.card{
+background:var(--card);
+border-radius:20px;
+overflow:hidden;
+border:1px solid var(--border);
+transition:.4s;
+cursor:pointer;
+position:relative;
+}
+
+.card:hover{
+transform:translateY(-8px);
+border-color:var(--purple);
+}
+
+.badge{
+position:absolute;
+top:15px;
+right:15px;
+background:var(--red);
+padding:6px 14px;
+border-radius:50px;
+font-size:12px;
+font-weight:bold;
+z-index:2;
+}
+
+.card-image{
+height:250px;
+overflow:hidden;
+}
+
+.card-image img{
+width:100%;
+height:100%;
+object-fit:cover;
+transition:.5s;
+}
+
+.card:hover img{
+transform:scale(1.08);
+}
+
+.card-content{
+padding:25px;
+}
+
+.card-content h4{
+font-size:24px;
+margin-bottom:10px;
+}
+
+.card-content p{
+color:var(--muted);
+line-height:1.9;
+font-size:14px;
+margin-bottom:20px;
+}
+
+.price{
+font-size:32px;
+font-weight:900;
+margin-bottom:20px;
+}
+
+.price span{
+font-size:15px;
+color:var(--muted);
+}
+
+.card-btn{
+width:100%;
+padding:14px;
+background:var(--red);
+border:none;
+border-radius:12px;
+color:white;
+font-size:16px;
+font-weight:bold;
+cursor:pointer;
+}
+
+.features{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+margin-top:40px;
+}
+
+.feature{
+background:var(--card);
+padding:30px;
+border-radius:20px;
+border:1px solid var(--border);
+}
+
+.feature h4{
+margin-bottom:15px;
+font-size:20px;
+}
+
+.feature p{
+color:var(--muted);
+line-height:1.9;
+font-size:14px;
+}
+
+footer{
+padding:60px 5%;
+text-align:center;
+background:#05080f;
+border-top:1px solid var(--border);
+}
+
+footer p{
+color:var(--muted);
+margin-top:15px;
+}
+
+/* النافذة المنبثقة */
+
+.modal{
+position:fixed;
+inset:0;
+background:rgba(0,0,0,.88);
+display:none;
+justify-content:center;
+align-items:center;
+padding:15px;
+z-index:9999;
+overflow-y:auto;
+-webkit-overflow-scrolling:touch;
+}
+
+.modal-content{
+background:#0f172a;
+width:100%;
+max-width:700px;
+border-radius:25px;
+overflow:hidden;
+position:relative;
+border:1px solid #1f2937;
+max-height:95vh;
+overflow-y:auto;
+}
+
+.close-btn{
+position:absolute;
+top:15px;
+left:15px;
+width:45px;
+height:45px;
+background:rgba(255,255,255,.1);
+border:none;
+border-radius:50%;
+color:white;
+font-size:24px;
+cursor:pointer;
+z-index:10;
+}
+
+.modal-image{
+height:300px;
+}
+
+.modal-image img{
+width:100%;
+height:100%;
+object-fit:cover;
+}
+
+.modal-body{
+padding:30px;
+}
+
+.modal-body h2{
+font-size:35px;
+margin-bottom:15px;
+}
+
+.modal-body p{
+line-height:2;
+color:var(--muted);
+margin-bottom:20px;
+}
+
+.modal-list{
+display:grid;
+gap:12px;
+margin-bottom:25px;
+}
+
+.modal-list div{
+background:rgba(255,255,255,.05);
+padding:14px;
+border-radius:12px;
+font-size:14px;
+}
+
+.whatsapp-btn{
+display:block;
+text-align:center;
+padding:16px;
+background:var(--green);
+color:white;
+font-weight:bold;
+border-radius:14px;
+font-size:18px;
+}
+
+@media(max-width:900px){
+
+.hero{
+grid-template-columns:1fr;
+text-align:center;
+}
+
+.hero-text h2{
+font-size:38px;
+}
+
+header{
+flex-direction:column;
+gap:15px;
+}
+
+nav{
+flex-wrap:wrap;
+justify-content:center;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">
+<h1>PABLO <span>RED</span></h1>
+<p>PREMIUM IPTV STORE</p>
+</div>
+
+<nav>
+<a href="#">الرئيسية</a>
+<a href="#packages">الاشتراكات</a>
+<a href="#features">المميزات</a>
+<a href="#contact">التواصل</a>
+</nav>
+
+</header>
+
+<section class="hero">
+
+<div class="hero-text">
+
+<h2>
+أفضل منصة ترفيه
+<span>رياضية وسينمائية</span>
+في العراق
+</h2>
+
+<p>
+تابع أقوى المباريات العالمية والأفلام والمسلسلات بجودة عالية جداً
+مع سيرفرات مستقرة وتفعيل فوري ودعم فني متواصل
+</p>
+
+<div class="hero-buttons">
+<a href="#packages" class="btn btn-red">استكشف الاشتراكات</a>
+<a href="https://wa.me/9647740393776" class="btn btn-dark">تواصل واتساب</a>
+</div>
+
+</div>
+
+<div class="hero-image">
+<img src="https://images.unsplash.com/photo-1511886929837-354d827aae26?q=80&w=1200&auto=format&fit=crop">
+</div>
+
+</section>
+
+<section class="stats">
+
+<div class="stat">
+<h3>4K</h3>
+<p>جودة بث فائقة</p>
+</div>
+
+<div class="stat">
+<h3>24/7</h3>
+<p>دعم فني متواصل</p>
+</div>
+
+<div class="stat">
+<h3>5000+</h3>
+<p>فيلم ومسلسل</p>
+</div>
+
+<div class="stat">
+<h3>99%</h3>
+<p>ثبات السيرفر</p>
+</div>
+
+</section>
+
+<section class="section" id="packages">
+
+<div class="section-title">
+<h3>اشتراكات بابلو ريد</h3>
+<p>اختر الباقة المناسبة لك</p>
+</div>
+
+<div class="cards">
+
+<div class="card" onclick="openModal('اشتراك رونالدو السنوي','30,000 IQD','https://images.unsplash.com/photo-1624526267942-ab0ff8a3e972?q=80&w=1200&auto=format&fit=crop')">
+
+<div class="badge">الأكثر طلبا</div>
+
+<div class="card-image">
+<img src="https://images.unsplash.com/photo-1624526267942-ab0ff8a3e972?q=80&w=1200&auto=format&fit=crop">
+</div>
+
+<div class="card-content">
+
+<h4>اشتراك رونالدو السنوي</h4>
+
+<p>
+أفضل تجربة رياضية وترفيهية مع ثبات عالي وجودة ممتازة
+</p>
+
+<div class="price">
+30,000 <span>IQD</span>
+</div>
+
+<button class="card-btn">عرض التفاصيل</button>
+
+</div>
+
+</div>
+
+<div class="card" onclick="openModal('اشتراك مبابي 6 اشهر','15,000 IQD','https://images.unsplash.com/photo-1517466787929-bc90951d0974?q=80&w=1200&auto=format&fit=crop')">
+
+<div class="card-image">
+<img src="https://images.unsplash.com/photo-1517466787929-bc90951d0974?q=80&w=1200&auto=format&fit=crop">
+</div>
+
+<div class="card-content">
+
+<h4>اشتراك مبابي</h4>
+
+<p>
+استمتع بأقوى القنوات الرياضية والافلام العالمية
+</p>
+
+<div class="price">
+15,000 <span>IQD</span>
+</div>
+
+<button class="card-btn">عرض التفاصيل</button>
+
+</div>
+
+</div>
+
+<div class="card" onclick="openModal('اشتراك هالاند 3 اشهر','10,000 IQD','https://images.unsplash.com/photo-1574629810360-7efbbe195018?q=80&w=1200&auto=format&fit=crop')">
+
+<div class="card-image">
+<img src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?q=80&w=1200&auto=format&fit=crop">
+</div>
+
+<div class="card-content">
+
+<h4>اشتراك هالاند</h4>
+
+<p>
+حل ممتاز للمواسم الرياضية والبطولات العالمية
+</p>
+
+<div class="price">
+10,000 <span>IQD</span>
+</div>
+
+<button class="card-btn">عرض التفاصيل</button>
+
+</div>
+
+</div>
+
+<div class="card" onclick="openModal('اشتراك رافينيا الشهري','5,000 IQD','https://images.unsplash.com/photo-1508098682722-e99c43a406b2?q=80&w=1200&auto=format&fit=crop')">
+
+<div class="card-image">
+<img src="https://images.unsplash.com/photo-1508098682722-e99c43a406b2?q=80&w=1200&auto=format&fit=crop">
+</div>
+
+<div class="card-content">
+
+<h4>اشتراك رافينيا</h4>
+
+<p>
+تجربة سريعة مع تفعيل فوري ومشاهدة ممتعة
+</p>
+
+<div class="price">
+5,000 <span>IQD</span>
+</div>
+
+<button class="card-btn">عرض التفاصيل</button>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<footer id="contact">
+
+<h2>PABLO RED</h2>
+
+<p>
+للطلب والتفعيل السريع
+</p>
+
+<p>
+07740393776
+</p>
+
+</footer>
+
+<div class="modal" id="modal">
+
+<div class="modal-content">
+
+<button class="close-btn" onclick="closeModal()">×</button>
+
+<div class="modal-image">
+<img id="modalImg">
+</div>
+
+<div class="modal-body">
+
+<h2 id="modalTitle"></h2>
+
+<p>
+اشتراك متكامل يمنحك أقوى القنوات الرياضية العالمية والأفلام والمسلسلات بجودة عالية جداً مع تحديثات مستمرة ودعم فني متواصل
+</p>
+
+<div class="modal-list">
+
+<div>✅ جميع الدوريات العالمية</div>
+<div>✅ مكتبة أفلام ضخمة</div>
+<div>✅ جودة 4K و FHD</div>
+<div>✅ دعم لجميع الأجهزة</div>
+<div>✅ تفعيل سريع وآمن</div>
+
+</div>
+
+<a id="orderBtn" class="whatsapp-btn" target="_blank">
+إتمام الطلب عبر واتساب
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+function openModal(title,price,image){
+
+document.body.style.overflow='hidden';
+
+document.getElementById('modal').style.display='flex';
+
+document.getElementById('modalTitle').innerHTML=
+title + ' - ' + price;
+
+document.getElementById('modalImg').src=image;
+
+const msg=
+`مرحبا 👋
+اريد طلب ${title}
+السعر ${price}`;
+
+document.getElementById('orderBtn').href=
+`https://wa.me/9647740393776?text=${encodeURIComponent(msg)}`;
+
+}
+
+function closeModal(){
+
+document.body.style.overflow='auto';
+
+document.getElementById('modal').style.display='none';
+
+}
+
+window.onclick=function(e){
+
+const modal=document.getElementById('modal');
+
+if(e.target==modal){
+closeModal();
+}
+
+}
+
+</script>
+
+</body>
+</html>
